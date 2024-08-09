@@ -1,0 +1,72 @@
+---
+title: "Iris Dataset Analysis"
+author: "Stephen Gray"
+date: "`r Sys.Date()`"
+output:
+  beamer_presentation: default
+  pdf_document:
+    toc: yes
+    number_sections: no
+    keep_tex: yes
+  powerpoint_presentation:
+    toc: yes
+    number_sections: no
+header-includes:
+- \usepackage{titling}
+- \pretitle{\begin{center}\Huge}
+- \posttitle{\end{center}\vskip 0.5em}
+- \preauthor{\begin{center}\large\lineskip 0.5em}
+- \postauthor{\end{center}}
+- \predate{\begin{center}\large}
+- \postdate{\end{center}\vskip 0.5em}
+---
+
+## Introduction  
+
+## Dataset Setup
+
+```{r setup, include=TRUE}
+# Load the iris dataset and assign to new_iris variable
+library(datasets)
+data(iris)
+new_iris <- iris   
+```
+
+---
+
+## Average Sepal Length  
+
+## Visualizations
+
+### Sepal Length
+
+```{r sepal_length_viz, include=TRUE}
+library(ggplot2)
+# Sepal Length Visualization
+ggplot(new_iris, aes(x=Species, y=Sepal.Length, fill=Species)) +
+  geom_histogram(stat="identity", position="dodge") +
+  geom_boxplot(width=0.4, position=position_dodge(1))
+```
+
+
+### Sepal Width
+
+```{r sepal_width_viz, include=TRUE}   
+# Sepal Width Visualization
+ggplot(new_iris, aes(x=Species, y=Sepal.Width, fill=Species)) +
+  geom_histogram(stat="identity", position="dodge") +
+  geom_boxplot(width=0.4, position=position_dodge(1))
+```
+
+
+---
+
+## Observations {.voice}
+
+<audio controls\>
+  \<source src="C:/Users/grays/Downloads/synthesis.wav" type="audio/wav"\>
+\</audio\>
+
+---
+
+From the visualizations, it's evident that there are clear differences between the three species in terms of sepal length, sepal width, petal length, and petal width. Setosa tends to have smaller petal lengths and widths compared to the other two species, but larger sepal widths. Versicolor and Virginica have more overlap, but Virginica generally has larger values across all four measurements compared to Versicolor.
